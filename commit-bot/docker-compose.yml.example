@@ -1,0 +1,12 @@
+bot:
+  image: commit-bot
+  hostname: commit-bot
+  environment:
+    - GIT_COMMIT_INTERVAL=*/15 * * * *
+    - GIT_COMMIT_MSG=commit automatically
+    - GIT_COMMIT_USER=anonymous
+    - GIT_COMMIT_EMAIL=anonymous@example.com
+  volumes:
+    - ./id_rsa:/commit-bot/gitpush_key
+    - ./fake-repo:/repo
+  restart: always
